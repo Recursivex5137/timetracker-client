@@ -7,6 +7,7 @@ import HomeScreen from '../screens/HomeScreen';
 import LinksScreen from '../screens/LinksScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 import TodoExampleScreen from '../screens/TodoExampleScreen';
+import TimeTrackerScreen from '../screens/TimeTrackerScreen';
 
 const HomeStack = createStackNavigator({
   Home: HomeScreen,
@@ -72,10 +73,28 @@ TodoExampleStack.navigationOptions = {
   ),
 }
 
+const TimeTrackerStack = createStackNavigator({
+  Time: TimeTrackerScreen,
+});
+
+TimeTrackerStack.navigationOptions = {
+  tabBarLabel: 'Time',
+  tabBarIcon: ({ focused }) => (
+    <TabBarIcon
+      focused={focused}
+      name={
+        Platform.OS === 'ios'
+          ? `ios-information-circle${focused ? '' : '-outline'}`
+          : 'md-information-circle'
+      }
+    />
+  ),
+}
 
 export default createBottomTabNavigator({
   HomeStack,
   LinksStack,
   SettingsStack,
-  TodoExampleStack
+  TodoExampleStack,
+  TimeTrackerStack
 });
