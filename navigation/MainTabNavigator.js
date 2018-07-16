@@ -55,11 +55,11 @@ SettingsStack.navigationOptions = {
 };
 
 const TodoExampleStack = createStackNavigator({
-  Time: TodoExampleScreen,
+  Todo: TodoExampleScreen,
 });
 
 TodoExampleStack.navigationOptions = {
-  tabBarLabel: 'Time',
+  tabBarLabel: 'Todo',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
