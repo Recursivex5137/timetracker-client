@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, DatePickerIOS, StyleSheet } from 'react-native';
+import { View, Text, DatePickerIOS, StyleSheet, Button, Alert } from 'react-native';
 
 export default class TimeTrackerScreen extends Component {
 
@@ -14,6 +14,10 @@ export default class TimeTrackerScreen extends Component {
     this.setState({ chosenDate: newDate });
   }
 
+  saveButton() {
+    Alert.alert("Hello you have pressed the save button");
+  }
+
   render() {
     return (
       <View styles={styles.container}>
@@ -21,6 +25,7 @@ export default class TimeTrackerScreen extends Component {
           date={this.state.chosenDate}
           onDateChange={this.setDate}
         ></DatePickerIOS>
+        <Button onPress={() => this.saveButton()} title="Save" color="#841584"></Button>
       </View>
     );
   }
@@ -30,6 +35,13 @@ export default class TimeTrackerScreen extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center'
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  row: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'flex-end'
   }
 });
