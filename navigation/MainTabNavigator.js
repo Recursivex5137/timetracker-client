@@ -8,6 +8,7 @@ import LinksScreen from '../screens/LinksScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 import TodoExampleScreen from '../screens/TodoExampleScreen';
 import TimeTrackerScreen from '../screens/TimeTrackerScreen';
+import JobsScreen from '../screens/JobsScreen';
 
 const HomeStack = createStackNavigator({
   Home: HomeScreen,
@@ -91,7 +92,26 @@ TimeTrackerStack.navigationOptions = {
   ),
 }
 
+const JobsStack = createStackNavigator({
+  Jobs: JobsScreen,
+});
+
+JobsStack.navigationOptions = {
+  tabBarLabel: 'Jobs',
+  tabBarIcon: ({ focused }) => (
+    <TabBarIcon
+      focused={focused}
+      name={
+        Platform.OS === 'ios'
+          ? `ios-information-circle${focused ? '' : '-outline'}`
+          : 'md-information-circle'
+      }
+    />
+  ),
+}
+
 export default createBottomTabNavigator({
+  JobsStack,
   HomeStack,
   LinksStack,
   SettingsStack,
