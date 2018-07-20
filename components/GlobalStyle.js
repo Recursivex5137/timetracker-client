@@ -22,7 +22,13 @@ const globalStyles = StyleSheet.create({
   textInstruction: {
     padding: 10,
     fontSize: 16,
-    color: '#1f72ba'
+    color: '#1f72ba' // should be different color to denote instruction
+  },
+  listText: {
+    backgroundColor: 'whitesmoke',
+    color: '#1f72ba',
+    fontSize: 24,
+    padding: 10,
   }
 });
 

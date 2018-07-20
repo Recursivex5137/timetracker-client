@@ -7,27 +7,21 @@ import { View, Text, StyleSheet, Button, FlatList, TouchableOpacity } from 'reac
 
 class JobsScreen extends Component {
 
-  static navigationOptions = {
-    title: 'Jobs',
-    headerTitleStyle: {
-      fontWeight: 'bold',
-    },
-    headerRight: (
-      <View >
-        <Button title='New Job' onPress={() => alert('Hi stinker')}></Button>
-      </View>
-    )
-  }
-
-  _onPressNavigate = (navigateToRoute) => {
-    this.props.navigation.navigate(navigateToRoute);
+  static navigationOptions = ({ navigation }) => {
+    return {
+      title: 'Jobs',
+      headerTitleStyle: {
+        fontWeight: 'bold',
+      },
+      headerRight: (
+        <Button title='New Job' onPress={() => navigation.navigate('CreateJob')}></Button>
+      )
+    }
   }
 
 
   constructor(props) {
     super(props);
-
-    // this._onPressNavigate = this._onPressNavigate.bind(this);
   }
 
   _onPress = (item) => {
@@ -36,37 +30,21 @@ class JobsScreen extends Component {
 
   _renderItemInList = ({ item }) => (
     <TouchableOpacity onPress={() => this._onPress(item)}>
-      <Text style={styles.listText}>{item.title}</Text>
+      <Text style={globalStyles.listText}>{item.title}</Text>
     </TouchableOpacity>
   );
 
   render() {
     return (
-      <View style={styles.layout}>
-        <Button title='New Job' onPress={() => this._onPressNavigate('CreateJob')}></Button>
+      <View style={globalStyles.columnLayout}>
         <FlatList
-          data={[{ title: 'title Text', key: 'item1' }, { title: 'title Text2', key: 'item2' }]}
+          data={[{ jobName: 'Custom Trim', jobNumber: 3324, key: 'item1' }, { title: 'Southern Blvd', jobNumber: 33234, key: 'item2' }]}
           renderItem={this._renderItemInList}
         />
       </View>
     );
   }
 }
-
-const styles = StyleSheet.create({
-  layout: {
-    flex: 1
-  },
-  headerRight: {
-    paddingRight: 20
-  },
-  listText: {
-    backgroundColor: 'whitesmoke',
-    color: '#1f72ba',
-    fontSize: 24,
-    padding: 10,
-  }
-});
 
 JobsScreen.propTypes = {
 
