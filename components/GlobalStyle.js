@@ -13,6 +13,16 @@ const globalStyles = StyleSheet.create({
   },
   padding10: {
     padding: 10
+  },
+  textInput: {
+    backgroundColor: 'whitesmoke',
+    padding: 10,
+    fontSize: 24,
+  },
+  textInstruction: {
+    padding: 10,
+    fontSize: 16,
+    color: '#1f72ba'
   }
 });
 

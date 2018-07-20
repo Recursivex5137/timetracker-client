@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { globalStyles } from '../components/GlobalStyle';
 
 import { View, Text, StyleSheet, Button, FlatList, TouchableOpacity } from 'react-native';
 
-import { Header, IconButton } from '../components';
 
 class JobsScreen extends Component {
 
@@ -14,14 +14,20 @@ class JobsScreen extends Component {
     },
     headerRight: (
       <View >
-        <Button title='New Job' onPress={() => alert('New Job')}></Button>
+        <Button title='New Job' onPress={() => alert('Hi stinker')}></Button>
       </View>
     )
+  }
+
+  _onPressNavigate = (navigateToRoute) => {
+    this.props.navigation.navigate(navigateToRoute);
   }
 
 
   constructor(props) {
     super(props);
+
+    // this._onPressNavigate = this._onPressNavigate.bind(this);
   }
 
   _onPress = (item) => {
@@ -37,6 +43,7 @@ class JobsScreen extends Component {
   render() {
     return (
       <View style={styles.layout}>
+        <Button title='New Job' onPress={() => this._onPressNavigate('CreateJob')}></Button>
         <FlatList
           data={[{ title: 'title Text', key: 'item1' }, { title: 'title Text2', key: 'item2' }]}
           renderItem={this._renderItemInList}

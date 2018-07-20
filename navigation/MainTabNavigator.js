@@ -9,6 +9,7 @@ import SettingsScreen from '../screens/SettingsScreen';
 import TodoExampleScreen from '../screens/TodoExampleScreen';
 import TimeTrackerScreen from '../screens/TimeTrackerScreen';
 import JobsScreen from '../screens/JobsScreen';
+import CreateJobScreen from '../screens/CreateJobScreen';
 
 const HomeStack = createStackNavigator({
   Home: HomeScreen,
@@ -92,11 +93,22 @@ TimeTrackerStack.navigationOptions = {
   ),
 }
 
-const JobsStack = createStackNavigator({
-  Jobs: JobsScreen,
+const JobStack = createStackNavigator({
+  Jobs: {
+    screen: JobsScreen,
+  },
+  CreateJob: {
+    screen: CreateJobScreen,
+  }
 });
 
-JobsStack.navigationOptions = {
+const FullJobStack = createStackNavigator({
+  Jobs: {
+    screen: JobStack,
+  }
+});
+
+FullJobStack.navigationOptions = {
   tabBarLabel: 'Jobs',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
@@ -111,7 +123,7 @@ JobsStack.navigationOptions = {
 }
 
 export default createBottomTabNavigator({
-  JobsStack,
+  FullJobStack,
   HomeStack,
   LinksStack,
   SettingsStack,
