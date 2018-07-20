@@ -103,10 +103,12 @@ const JobStack = createStackNavigator({
 });
 
 const FullJobStack = createStackNavigator({
-  Jobs: {
-    screen: JobStack,
-  }
-});
+  JobStack
+},
+  {
+    mode: 'card',
+    headerMode: 'none'
+  });
 
 FullJobStack.navigationOptions = {
   tabBarLabel: 'Jobs',
