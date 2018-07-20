@@ -6,9 +6,6 @@ class CreateJobScreen extends Component {
 
   static navigationOptions = {
     title: 'Create Job',
-    headerLeft: (
-      <Button style={globalStyles.paddingLeft20} title='Cancel' onPress={() => alert('Back')}></Button>
-    ),
     headerRight: (
       <Button style={globalStyles.paddingRight20} title='Save Job' onPress={() => alert('Save Job')}></Button>
     )
