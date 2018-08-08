@@ -4,8 +4,11 @@
     "description": "A very interesting project.",
     "slug": "time-tracker-expo",
     "privacy": "public",
-    "sdkVersion": "28.0.0",
-    "platforms": ["ios", "android"],
+    "sdkVersion": "29.0.0",
+    "platforms": [
+      "ios",
+      "android"
+    ],
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
