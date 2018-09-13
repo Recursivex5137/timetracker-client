@@ -24,10 +24,16 @@ import CreateTimeEntryScreen from '../screens/CreateTimeEntryScreen';
  * TODO: TimeEntry fields 
  * { startDateTime, endDateTime, jobId, tags:[tag1Id,tag2Id,tag3Id]}
  * 
+ * 
+ * TODO: Create tests for existing jobs state in redux
+ * TODO: Create tests for the TimeEntries state
+ * TODO: Create the TimeEntries state
+ * 
  * TODO: TagsScreen display > deletion -> TagEntryScreen 
  * 
  * TODO: TagEntryScreen > creation > modification fields ?? field description needed?
  * { id, name, description, timeEntries: [time1Id, time2Id, time3Id]}
+ * 
  * 
  * RESEARCH: Sync/Export options realtime/nonrealtime automaticSync/manualSync
  * 
