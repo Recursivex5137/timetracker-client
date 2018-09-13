@@ -1,19 +1,14 @@
-import { ActionConst, addJob } from '../actions';
+import { ActionConst } from '../actions';
+import { findObject } from '../../utility/utility';
+
 const initialState = {
   jobs: []
 };
 
-// TODO: use utilities findObject
-function findObject(array, objectKey, valueToCheck) {
-  return array.filter(function (current) { return current[objectKey] === valueToCheck; })[0];
-}
-
 const jobs = (state = initialState, action) => {
   switch (action.type) {
     case ActionConst.ADD_JOB:
-      // works -but no tests
-      // TODO: create test
-      console.log('reducer: ', action, ' state : ', state);
+      // DONE: create test
       return {
         ...state,
         jobs: state.jobs.concat({
@@ -23,8 +18,7 @@ const jobs = (state = initialState, action) => {
         })
       };
     case ActionConst.UPDATE_JOB:
-      // works -but no tests
-      // TODO: create test
+      // DONE: create test
       const prevJob = findObject(state.jobs, 'id', action.payload.id);
       const newJob = {
         id: action.payload.id,
@@ -32,10 +26,6 @@ const jobs = (state = initialState, action) => {
         number: action.payload.number,
       };
       const previousIndex = state.jobs.indexOf(prevJob);
-
-      console.log('reducer: update  previousIndex: ', previousIndex,
-        'job :', prevJob, 'newJob : ', newJob);
-
       return {
         ...state,
         jobs: state.jobs.slice(0, previousIndex)
@@ -44,8 +34,7 @@ const jobs = (state = initialState, action) => {
       };
 
     case ActionConst.DELETE_JOB:
-      // works -but no tests
-      // TODO: create test
+      // DONE: create test
       const deleteJob = findObject(state.jobs, 'id', action.payload.id);
       const deleteJobIndex = state.jobs.indexOf(deleteJob);
       return {
@@ -55,7 +44,7 @@ const jobs = (state = initialState, action) => {
           .concat(state.jobs.slice(deleteJobIndex + 1, state.jobs.length))
       };
     default:
-      return state
+      return state;
   }
 };
 
