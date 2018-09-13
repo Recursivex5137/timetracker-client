@@ -24,8 +24,8 @@ import CreateTimeEntryScreen from '../screens/CreateTimeEntryScreen';
  * TODO: TimeEntry fields 
  * { startDateTime, endDateTime, jobId, tags:[tag1Id,tag2Id,tag3Id]}
  * 
- * 
- * TODO: Create tests for existing jobs state in redux
+ * DONE: Create tests for redux JobActionCreators
+ * DONE: Create tests for existing reducers in jobs state
  * TODO: Create tests for the TimeEntries state
  * TODO: Create the TimeEntries state
  * 
