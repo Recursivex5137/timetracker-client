@@ -5,6 +5,9 @@ const globalStyles = StyleSheet.create({
     flex: 1,
     flexDirection: 'column'
   },
+  paddingTop20: {
+    paddingTop: 20
+  },
   paddingRight20: {
     paddingRight: 20
   },
