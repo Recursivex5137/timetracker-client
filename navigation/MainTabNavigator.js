@@ -4,12 +4,13 @@ import { createStackNavigator, createBottomTabNavigator } from 'react-navigation
 
 import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
-import LinksScreen from '../screens/LinksScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 import TodoExampleScreen from '../screens/TodoExampleScreen';
 import TimeTrackerScreen from '../screens/TimeTrackerScreen';
 import JobsScreen from '../screens/JobsScreen';
 import CreateJobScreen from '../screens/CreateJobScreen';
+import TimeEntriesScreen from '../screens/TimeEntriesScreen';
+import CreateTimeEntryScreen from '../screens/CreateTimeEntryScreen';
 
 /**
  * TODO: JobScreen -> TimeEntriesScreen for all times associated with this Job
@@ -55,19 +56,28 @@ HomeStack.navigationOptions = {
   ),
 };
 
-const LinksStack = createStackNavigator({
-  Links: LinksScreen,
+const TimeEntryStack = createStackNavigator({
+  TimeEntries: {
+    screen: TimeEntriesScreen,
+  },
+  CreateTimeEntry: {
+    screen: CreateTimeEntryScreen,
+  }
 });
 
-LinksStack.navigationOptions = {
-  tabBarLabel: 'Links',
+TimeEntryStack.navigationOptions = {
+  tabBarLabel: 'Time',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
-      name={Platform.OS === 'ios' ? `ios-link${focused ? '' : '-outline'}` : 'md-link'}
+      name={
+        Platform.OS === 'ios'
+          ? `ios-information-circle${focused ? '' : '-outline'}`
+          : 'md-information-circle'
+      }
     />
   ),
-};
+}
 
 const SettingsStack = createStackNavigator({
   Settings: SettingsScreen,
@@ -152,8 +162,8 @@ FullJobStack.navigationOptions = {
 
 export default createBottomTabNavigator({
   FullJobStack,
+  TimeEntryStack,
   HomeStack,
-  LinksStack,
   SettingsStack,
   TodoExampleStack,
   TimeTrackerStack
