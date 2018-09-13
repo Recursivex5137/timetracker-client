@@ -3,6 +3,7 @@ const initialState = {
   jobs: []
 };
 
+// TODO: use utilities findObject
 function findObject(array, objectKey, valueToCheck) {
   return array.filter(function (current) { return current[objectKey] === valueToCheck; })[0];
 }
@@ -11,6 +12,7 @@ const jobs = (state = initialState, action) => {
   switch (action.type) {
     case ActionConst.ADD_JOB:
       // works -but no tests
+      // TODO: create test
       console.log('reducer: ', action, ' state : ', state);
       return {
         ...state,
@@ -22,6 +24,7 @@ const jobs = (state = initialState, action) => {
       };
     case ActionConst.UPDATE_JOB:
       // works -but no tests
+      // TODO: create test
       const prevJob = findObject(state.jobs, 'id', action.payload.id);
       const newJob = {
         id: action.payload.id,
@@ -42,6 +45,7 @@ const jobs = (state = initialState, action) => {
 
     case ActionConst.DELETE_JOB:
       // works -but no tests
+      // TODO: create test
       const deleteJob = findObject(state.jobs, 'id', action.payload.id);
       const deleteJobIndex = state.jobs.indexOf(deleteJob);
       return {

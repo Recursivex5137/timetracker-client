@@ -21,6 +21,7 @@ class JobsScreen extends Component {
     }
   }
 
+  // need empty selectedJob for modal properties so it won't be undefined
   constructor(props) {
     super(props);
     this.state = {
@@ -103,6 +104,11 @@ class JobsScreen extends Component {
         >
           <View style={globalStyles.paddingTop20}>
             <View>
+              {
+                /* TODO: Make modal pretty and implement navigation to TimeEntriesScreen
+                and another path to enter time at TimeEntryScreen.
+                */
+              }
               <Text>Hello there!</Text>
               <Text>{this.state.selectedJob.id}</Text>
               <Text>{this.state.selectedJob.name}</Text>

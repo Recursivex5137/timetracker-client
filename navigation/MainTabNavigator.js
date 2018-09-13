@@ -11,6 +11,32 @@ import TimeTrackerScreen from '../screens/TimeTrackerScreen';
 import JobsScreen from '../screens/JobsScreen';
 import CreateJobScreen from '../screens/CreateJobScreen';
 
+/**
+ * TODO: JobScreen -> TimeEntriesScreen for all times associated with this Job
+ * 
+ * TODO: JobScreen -> TimeEntryScreen for creating time entries
+ * 
+ * TODO: TimeTab -> TimeEntriesScreen -> TimeEntry
+ * 
+ * RESEARCH: Tag system -> filtering > adminCreatedTags > userCreatedTags 
+ * 
+ * TODO: TimeEntry fields 
+ * { startDateTime, endDateTime, jobId, tags:[tag1Id,tag2Id,tag3Id]}
+ * 
+ * TODO: TagsScreen display > deletion -> TagEntryScreen 
+ * 
+ * TODO: TagEntryScreen > creation > modification fields ?? field description needed?
+ * { id, name, description, timeEntries: [time1Id, time2Id, time3Id]}
+ * 
+ * RESEARCH: Sync/Export options realtime/nonrealtime automaticSync/manualSync
+ * 
+ * TODO: SettingsTab -> SettingsScreen > notificationEntryTimeAlarm 
+ *           > BreakTime.On.OffPayroll > Sync/Export.automatic/manual 
+ * 
+ * RESEARCH: Check if need scheduling or notes in Jobs or tests 
+ * 
+ */
+
 const HomeStack = createStackNavigator({
   Home: HomeScreen,
 });
