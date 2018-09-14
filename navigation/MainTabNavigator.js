@@ -12,22 +12,25 @@ import CreateJobScreen from '../screens/CreateJobScreen';
 import TimeEntriesScreen from '../screens/TimeEntriesScreen';
 import CreateTimeEntryScreen from '../screens/CreateTimeEntryScreen';
 
-/**
- * TODO: JobScreen -> TimeEntriesScreen for all times associated with this Job
- * 
- * TODO: JobScreen -> TimeEntryScreen for creating time entries
- * 
+/** 
  * TODO: TimeTab -> TimeEntriesScreen -> TimeEntry
+ * 
+ * TODO: JobScreen -> TimeEntriesScreen for all times associated with this Job
+ * TODO: JobScreen -> TimeEntryScreen for creating time entries
  * 
  * RESEARCH: Tag system -> filtering > adminCreatedTags > userCreatedTags 
  * 
- * TODO: TimeEntry fields 
+ * TODO: TimeEntryScreen fields 
  * { startDateTime, endDateTime, jobId, tags:[tag1Id,tag2Id,tag3Id]}
+ * TODO: TimeEntryScreen for Android
+ * TODO: TimeEntryScreen for IOS
  * 
  * DONE: Create tests for redux JobActionCreators
  * DONE: Create tests for existing reducers in jobs state
- * TODO: Create tests for the TimeEntries state
- * TODO: Create the TimeEntries state
+ * DONE: Create tests for the TimeEntries state
+ * DONE: Create the TimeEntries state
+ * TODO: Create the tags tests
+ * TODO: Create the tags state
  * 
  * TODO: TagsScreen display > deletion -> TagEntryScreen 
  * 
