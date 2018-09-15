@@ -5,6 +5,9 @@ import { View, Text, StyleSheet, Modal, Button, FlatList, TouchableOpacity } fro
 
 import { connect } from 'react-redux';
 import { JobActionCreators } from '../store/actions';
+import format from 'date-fns/format';
+import DateFns from 'date-fns';
+
 
 class TimeEntriesScreen extends Component {
 
@@ -25,13 +28,70 @@ class TimeEntriesScreen extends Component {
   }
 
   _onPress = (item) => {
-    alert(`You have pressed this: item`);
+    alert(`You have pressed this: ${item}`);
   }
 
+  _formatDateTime = (dateTime) => {
+    return DateFns.format(dateTime, 'YYYY/MM/DD');
+  }
+
+  _differenceInTime = (earlierDateT, laterDateT) => {
+    const differenceDays = DateFns.differenceInDays(laterDateT, earlierDateT);
+    const differenceHours = DateFns.differenceInHours(laterDateT, earlierDateT);
+    const differenceMinutes = DateFns.differenceInMinutes(laterDateT, earlierDateT);
+
+    return differenceDays > 0 ? `Days ${differenceDays}, Hrs ${differenceHours}, Min ${differenceMinutes}` :
+      `Hrs ${differenceHours} Min ${differenceMinutes}`;
+  }
+
+  _renderTimeEntriesInList = ({ item }) => (
+    <TouchableOpacity onPress={() => this._onPress(`the job id: ${item.jobId}`)}>
+      <Text style={globalStyles.dateTimeText}>{this._differenceInTime(item.startDateTime, item.endDateTime)}</Text>
+    </TouchableOpacity>
+  );
+
   render() {
+
+    const data = [
+      {
+        id: 'ioioj3434-3483948',
+        startDateTime: new Date('2018-03-23T07:15:00'),
+        endDateTime: new Date('2018-03-23T07:24:00'),
+        jobId: '8lj98j',
+        tags: [
+          { id: 'tag1' },
+          { id: 'tag2' }
+        ]
+      },
+      {
+        id: 'ojijofishh-joiohih',
+        startDateTime: new Date('2018-03-23T07:34:00'),
+        endDateTime: new Date('2018-03-23T07:54:00'),
+        jobId: '34324jo',
+        tags: [
+          { id: 'tag1' },
+          { id: 'tag2' }
+        ]
+      },
+      {
+        id: 'dfsdfsdfij8-8989uj8',
+        startDateTime: new Date('2018-03-23T07:12:00'),
+        endDateTime: new Date('2018-03-23T07:25:00'),
+        jobId: 'sdfsdf34',
+        tags: [
+          { id: 'tag1' },
+          { id: 'tag2' }
+        ]
+      },
+    ];
+
     return (
       <View style={globalStyles.columnLayout}>
-        <Text>Hello There!</Text>
+        <FlatList
+          data={data}
+          renderItem={this._renderTimeEntriesInList}
+          keyExtractor={(item, index) => item.id}
+        />
       </View>
     );
   }

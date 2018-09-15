@@ -32,6 +32,12 @@ const globalStyles = StyleSheet.create({
     color: '#1f72ba',
     fontSize: 24,
     padding: 10,
+  },
+  dateTimeText: {
+    backgroundColor: 'whitesmoke',
+    color: '#1f72ba',
+    fontSize: 18,
+    padding: 10,
   }
 });
 
