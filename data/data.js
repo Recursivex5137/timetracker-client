@@ -5,7 +5,12 @@ export const exampleData = {
     'CleanTime'
   ],
   timesArray: [
-    { StartTime: '', EndTime: '', TotalTime: '', timeType: 'RegularTime' } // ISO 8601
+    { 
+      StartTime: '', 
+      EndTime: '', 
+      TotalTime: '', 
+      timeType: 'RegularTime' 
+    } // ISO 8601
   ],
   CurrentUser: {
     firstName: 'Gerald',

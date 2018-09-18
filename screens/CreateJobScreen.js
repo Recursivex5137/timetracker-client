@@ -19,7 +19,7 @@ class CreateJobScreen extends Component {
     let jobId = this.props.navigation.getParam('jobId', '');
     this.paramJobId = jobId;
     console.log('props:  ', this.props.jobs.jobs, 'second tyr');
-    if (jobId !== '' && this.props.jobs.jobs !== undefined) {
+    if (!!jobId && !!this.props.jobs.jobs) {
       //find obj can't run with undefined
       const updatedState = findObject(this.props.jobs.jobs, 'id', jobId);
       this.state = {
